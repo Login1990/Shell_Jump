@@ -12,10 +12,16 @@ public class WeaponParent : MonoBehaviour
     public float timer;
     public float recoilForce;
     public Rigidbody2D rb;
+    public Vector3 boxSize;
+    public float maxDistance;
+    public LayerMask layerMask;
+    private int ammo;
+    public bool isCol;
     // Start is called before the first frame update
     void Start()
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        int ammo = 1;
     }
 
     // Update is called once per frame
@@ -23,9 +29,12 @@ public class WeaponParent : MonoBehaviour
     {
         gun_direction();
         timer += Time.deltaTime;
-        if (Input.GetMouseButtonDown(0)){
+        if (Input.GetMouseButtonDown(0) && ammo>0){
             Shoot();
-            timer = 0;
+            ammo = ammo-1;
+        }
+        if(isCol){
+            ammo = 1;
         }
     }
     private void gun_direction(){
@@ -55,5 +64,6 @@ public class WeaponParent : MonoBehaviour
     }
     private void Shoot(){
         rb.AddForce(-lookDir * recoilForce, ForceMode2D.Impulse);
+
     }
 }
