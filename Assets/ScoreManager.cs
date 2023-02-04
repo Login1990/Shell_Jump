@@ -6,9 +6,10 @@ using TMPro;
 public class ScoreManager : MonoBehaviour
 {
     public TMP_Text textScore;
-    public int score;
-    public int yPosition;
-    public string largeSign;
+    public FallDown falldown;
+    [HideInInspector] private int yPosition;
+    [HideInInspector] private string largeSign;
+    [HideInInspector] public int score;
 
     void Start()
     {
@@ -20,6 +21,10 @@ public class ScoreManager : MonoBehaviour
     void Update()
     {
         yPosition = (int)GameObject.FindGameObjectWithTag("Player").transform.position[1];
+        if (falldown.outOfBounds)
+        {
+            score = 100000;
+        }
         if (score < yPosition)
         {
             score = yPosition;

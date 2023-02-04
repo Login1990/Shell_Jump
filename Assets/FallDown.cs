@@ -2,18 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class FallDown : MonoBehaviour
 {
-    public Transform target;
-    Camera cam;
-
-    void Start()
-    {
-        cam = GetComponent<Camera>();
-    }
+    public Camera cam;
+    [HideInInspector] public bool outOfBounds;
+    [HideInInspector] public Vector3 screenPos;
 
     void Update()
     {
-        Vector3 screenPos = cam.WorldToScreenPoint(target.position);
+        screenPos = cam.WorldToScreenPoint(GameObject.FindGameObjectWithTag("Player").transform.position);
+        outOfBounds = !Screen.safeArea.Contains(screenPos);
     }
 }
