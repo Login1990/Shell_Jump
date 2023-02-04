@@ -23,7 +23,7 @@ public class WeaponParent : MonoBehaviour
     {
         gun_direction();
         timer += Time.deltaTime;
-        if (Input.GetMouseButtonDown(0) && rb.velocity.y == 0){
+        if (Input.GetMouseButtonDown(0)){
             Shoot();
             timer = 0;
         }
