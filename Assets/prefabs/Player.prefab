@@ -111,7 +111,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4516943335756840895}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.78, y: 0.51, z: -9.955177}
+  m_LocalPosition: {x: 2.5735729, y: -3.5529776, z: -9.955177}
   m_LocalScale: {x: 0.2345, y: 0.2396, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -134,7 +134,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.5
   m_GravityScale: 3
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e176fc4770a594186a5c003da05408e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boxSize: {x: 0.1, y: 0.2, z: 0.2}
+  boxSize: {x: 0.4, y: 0.1, z: 0.2}
   maxDistance: 0.5
   layerMask:
     serializedVersion: 2
@@ -261,7 +261,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 762f58a164e9c19418871ae209070b3c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -282,7 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 440502d33ebcb4993a831ca37a5f2e8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFacingLeft: 0
+  isFacingLeft: 1
   lookDir: {x: 0, y: 0}
 --- !u!1 &4516943336792913580
 GameObject:
@@ -308,7 +308,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4516943336792913580}
-  m_LocalRotation: {x: 0, y: 0.008726558, z: 0, w: 0.999962}
+  m_LocalRotation: {x: -0, y: -0, z: -0.98812425, w: 0.15365693}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -329,13 +329,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9ad15fde3a2049bcb056a9f3bfaaf93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFacingLeft: 0
-  lookDir: {x: 0, y: 0}
+  isFacingLeft: 1
+  lookDir: {x: -13.036523, y: -8.528138}
   recoilForce: 12
   rb: {fileID: 4516943335756840880}
-  boxSize: {x: 0.5, y: 0.3, z: 0.2}
+  boxSize: {x: 0.4, y: 0.3, z: 0.2}
   maxDistance: 1
   layerMask:
     serializedVersion: 2
     m_Bits: 16
-  isCol: 0
+  ammo: 2
+  isCol: 1
+  isReloading: 0
