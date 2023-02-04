@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5807165630528762577}
   - component: {fileID: 5807165630528762414}
   - component: {fileID: 5807165630528762412}
+  - component: {fileID: 1804010883}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -60,7 +61,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -84,3 +85,17 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5807165630528762413}
   m_Enabled: 1
+--- !u!114 &1804010883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5807165630528762413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c44e481a520884ac4b872394113c8696, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  XPosition: 0
+  YPosition: 0
