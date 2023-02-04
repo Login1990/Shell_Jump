@@ -26,7 +26,7 @@ public class GroundCheck : MonoBehaviour
     }
     private bool Ground()
     {
-        if(Physics2D.BoxCast(transform.position,boxSize,0,-transform.up,maxDistance,layerMask))
+        if(Physics2D.BoxCast(transform.position,boxSize,0,-transform.up,maxDistance,layerMask) && MyWeapon.rb.velocity.y<0)
         {
             return true;
         }
