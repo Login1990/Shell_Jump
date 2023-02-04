@@ -5,16 +5,19 @@ using UnityEngine;
 public class LevelGeneratorOG : MonoBehaviour
 {
     [SerializeField] private Transform levelPart_1;
+    [SerializeField] private Transform levelPart_Start;
 
     private void Awake()
     {
-        Instantiate(levelPart_1, new Vector3(-3.41f,19.67f),Quaternion.identity);
+        Transform lastLevelPartTransform;
+        lastLevelPartTransform = SpawnLevelPart(levelPart_Start.Find("EndPoint").position);
     }
 
-    /*private void SpawnLevelPart(Vector3 spawnPosition)
+    private Transform SpawnLevelPart(Vector3 spawnPosition)
     {
-        Instantiate(levelPart_1, new Vector3(0,9.67f),Quaternion.identity);
-    }*/
+        Transform levelPartTransform = Instantiate(levelPart_1, spawnPosition ,Quaternion.identity);
+        return levelPartTransform;
+    }
 
 
     /*private const float PLAYER_DISTANCE_SPAWN_LEVEL_PART = 200f;
