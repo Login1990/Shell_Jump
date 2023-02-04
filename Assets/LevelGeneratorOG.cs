@@ -17,7 +17,7 @@ public class LevelGeneratorOG : MonoBehaviour
         lastEndPosition = levelPart_Start.Find("EndPoint").position;
         SpawnLevelPart();
        /* UnityEngine.Debug.Log("The Awake last end is "+lastEndPosition);*/
-
+    }
     private void Update()
     {
         if (Vector3.Distance(player.transform.position, lastEndPosition) < PLAYER_DISTANCE_SPAWN_LEVEL_PART)
