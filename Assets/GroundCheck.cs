@@ -8,6 +8,8 @@ public class GroundCheck : MonoBehaviour
     public float maxDistance;
     public LayerMask layerMask;
     public WeaponParent MyWeapon;
+
+        public AudioSource land;
     // Start is called before the first frame update
 
     // Update is called once per frame
@@ -26,8 +28,9 @@ public class GroundCheck : MonoBehaviour
     }
     private bool Ground()
     {
-        if(Physics2D.BoxCast(transform.position,boxSize,0,-transform.up,maxDistance,layerMask))
+        if(Physics2D.BoxCast(transform.position,boxSize,0,-transform.up,maxDistance,layerMask) && MyWeapon.rb.velocity.y<0)
         {
+            land.Play();
             return true;
         }
         else{

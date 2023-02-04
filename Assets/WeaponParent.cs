@@ -14,13 +14,24 @@ public class WeaponParent : MonoBehaviour
     public float maxDistance;
     public LayerMask layerMask;
     public int ammo;
-    public bool isCol;
+    public bool isCol = false;
     public bool isReloading;
+
+    public GameObject MuzzleFlashObject;
+    public float MuzzleFlashTimer = 0.1f;
+    private float MuzzleFlashTimerStart;
+    public bool MuzzleFlashEnabled = false;
+
+    public AudioSource boom;
+
+
     // Start is called before the first frame update
     void Start()
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         int ammo = 2;
+        MuzzleFlashTimerStart = MuzzleFlashTimer;
+
     }
 
     // Update is called once per frame
@@ -28,11 +39,22 @@ public class WeaponParent : MonoBehaviour
     {
         gun_direction();
         if (Input.GetMouseButtonDown(0) && ammo>0){
+            MuzzleFlashEnabled = true;
             Shoot();
+            boom.Play();
             ammo = ammo-1;
         }
         if(isCol && !isReloading && ammo==0){
             StartCoroutine(Reload());
+        }
+        if (MuzzleFlashEnabled == true){
+            MuzzleFlashObject.SetActive(true);
+            MuzzleFlashTimer -= Time.deltaTime;
+        }
+        if (MuzzleFlashTimer <= 0){
+            MuzzleFlashObject.SetActive(false);
+            MuzzleFlashEnabled = false;
+            MuzzleFlashTimer = MuzzleFlashTimerStart;
         }
     }
     private void gun_direction(){
