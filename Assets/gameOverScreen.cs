@@ -13,11 +13,11 @@ public class gameOverScreen : MonoBehaviour
 
     public void RestartButton()
     {
-        SceneManager.LoadScene("testing");
+        SceneManager.LoadScene("Main");
     }
 
     public void ExitButton()
     {
-        //SceneManager.LoadScene("testing");
+        Application.Quit();
     }
 }
