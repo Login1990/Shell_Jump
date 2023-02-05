@@ -8,7 +8,7 @@ public class LevelGeneratorOG : MonoBehaviour
     [SerializeField] private Transform levelPart_Start;
     [SerializeField] private GameObject player;
 
-    private const float PLAYER_DISTANCE_SPAWN_LEVEL_PART = 10f;
+    private const float PLAYER_DISTANCE_SPAWN_LEVEL_PART = 15f;
 
     private Vector3 lastEndPosition;
 
