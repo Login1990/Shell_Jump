@@ -7,6 +7,7 @@ public class ScoreManager : MonoBehaviour
 {
     public TMP_Text textScore;
     public FallDown falldown;
+    public gameOverScreen gameOverScreen;
     [HideInInspector] private int yPosition;
     [HideInInspector] private string largeSign;
     [HideInInspector] public int score;
@@ -23,7 +24,7 @@ public class ScoreManager : MonoBehaviour
         yPosition = (int)GameObject.FindGameObjectWithTag("Player").transform.position[1];
         if (falldown.outOfBounds)
         {
-            score = 100000;
+            gameOverScreen.Setup();
         }
         if (score < yPosition)
         {
