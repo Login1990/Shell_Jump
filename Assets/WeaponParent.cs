@@ -15,12 +15,13 @@ public class WeaponParent : MonoBehaviour
     public LayerMask layerMask;
     public int ammo;
     public bool isCol = false;
-    public bool isReloading;
+    public bool isReloading = false;
 
     public GameObject MuzzleFlashObject;
     public float MuzzleFlashTimer = 0.1f;
     private float MuzzleFlashTimerStart;
     public bool MuzzleFlashEnabled = false;
+    public float velocity;
 
     public AudioSource boom;
 
@@ -31,12 +32,14 @@ public class WeaponParent : MonoBehaviour
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         int ammo = 2;
         MuzzleFlashTimerStart = MuzzleFlashTimer;
+        
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        velocity = rb.velocity.y;
         gun_direction();
         if (Input.GetMouseButtonDown(0) && ammo>0){
             MuzzleFlashEnabled = true;
@@ -44,9 +47,10 @@ public class WeaponParent : MonoBehaviour
             boom.Play();
             ammo = ammo-1;
         }
-        if(isCol && !isReloading && ammo==0){
+        if(isCol == true && velocity==0 && !isReloading && ammo < 2){
             StartCoroutine(Reload());
-        }
+            }
+
         if (MuzzleFlashEnabled == true){
             MuzzleFlashObject.SetActive(true);
             MuzzleFlashTimer -= Time.deltaTime;
@@ -84,8 +88,17 @@ public class WeaponParent : MonoBehaviour
     }
     private IEnumerator Reload(){
         isReloading = true;
-        yield return new WaitForSeconds(0.5f);
-        ammo = 2;
-        isReloading = false;
+        if(isCol == true && velocity==0){
+            yield return new WaitForSeconds(0.1f);
+            if(isCol == true && velocity==0){
+                ammo = 2;
+                isReloading = false;
+            }else{
+                isReloading = false;
+            }
+        }else{
+            isReloading = false;
+        }
+
     }
 }
