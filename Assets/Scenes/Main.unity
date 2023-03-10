@@ -528,6 +528,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Repeated Segment
       objectReference: {fileID: 0}
+    - target: {fileID: 7992268946515546996, guid: 75a4561cc494edb4783e1291d369cf19, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7992268946515547003, guid: 75a4561cc494edb4783e1291d369cf19, type: 3}
       propertyPath: m_RootOrder
       value: 4
